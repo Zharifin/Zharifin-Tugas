@@ -91,8 +91,8 @@ function tagChipHtml(tag, extraStyle){
  
 const DB = {
   students:[
-    {id:'2025001', password:'siswa123', name:'Naila Putri Ramadhani', kelas:'IX-A'},
-    {id:'2025002', password:'siswa123', name:'Rafi Aditya Pratama', kelas:'IX-B'}
+    {id:'2025001', password:'siswa123', name:'Muhammad Athar Afdholly', kelas:'IX-A'},
+    {id:'2025002', password:'siswa123', name:'Rasendriya Sabian Hadiyuwono', kelas:'IX-B'}
   ],
   teachers:[
     {username:'guru01', password:'guru123', name:'Sri Wahyuni, S.Pd', mapel:'Bahasa Indonesia'}
@@ -103,13 +103,13 @@ const DB = {
   },
   classRoster:{
     'IX-A':[
-      {id:'2025001', nama:'Naila Putri Ramadhani', rata:0, terakhir:'Belum pernah'},
+      {id:'2025001', nama:'Muhammad Athar Afdholly', rata:0, terakhir:'Belum pernah'},
       {id:'2025003', nama:'Bagas Wirawan', rata:0, terakhir:'Belum pernah'},
       {id:'2025004', nama:'Citra Ayu Lestari', rata:0, terakhir:'Belum pernah'},
       {id:'2025005', nama:'Dimas Fadillah', rata:0, terakhir:'Belum pernah'}
     ],
     'IX-B':[
-      {id:'2025002', nama:'Rafi Aditya Pratama', rata:0, terakhir:'Belum pernah'},
+      {id:'2025002', nama:'Rasendriya Sabian Hadiyuwono', rata:0, terakhir:'Belum pernah'},
       {id:'2025006', nama:'Elang Saputra', rata:0, terakhir:'Belum pernah'},
       {id:'2025007', nama:'Farah Nabila', rata:0, terakhir:'Belum pernah'},
       {id:'2025008', nama:'Salsabila Putri', rata:0, terakhir:'Belum pernah'},
