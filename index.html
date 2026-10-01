@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competest</title>
+    <link rel="icon" type="image/png" href="Favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;
+1,300;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,
+.600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- ================= LOGIN ================= -->
+<div id="loginScreen">
+  <div class="app">
+    <div class="login-wrap">
+      <div class="login-card">
+        <p class="login-logo">Sistem Asesmen Literasi</p>
+        <p class="login-sub">Prototipe tugas akhir. Masuk sebagai siswa atau guru untuk melihat pengalaman masing-masing peran.</p>
+ 
+        <div class="role-toggle">
+          <div class="role-opt active" id="roleOptSiswa" onclick="switchLoginRole('siswa')">Siswa</div>
+          <div class="role-opt" id="roleOptGuru" onclick="switchLoginRole('guru')">Guru</div>
+        </div>
+ 
+        <div class="login-form active" id="formSiswa">
+          <label>ID Siswa</label>
+          <input type="text" id="siswaIdInput" placeholder="Contoh: 2025001">
+          <label>Kata sandi</label>
+          <input type="password" id="siswaPassInput" placeholder="Kata sandi">
+          <button class="btn btn-primary btn-block" type="button" onclick="handleLoginSiswa()">Masuk sebagai siswa</button>
+        </div>
+ 
+        <div class="login-form" id="formGuru">
+          <label>Akun guru</label>
+          <input type="text" id="guruUserInput" placeholder="Contoh: guru01">
+          <label>Kata sandi</label>
+          <input type="password" id="guruPassInput" placeholder="Kata sandi">
+          <button class="btn btn-primary btn-block" type="button" onclick="handleLoginGuru()">Masuk sebagai guru</button>
+        </div>
+ 
+        <p class="login-error" id="loginError">ID/akun atau kata sandi salah. Coba lagi.</p>
+ 
+        <div class="cred-hint" id="credHint"></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ================= APP ================= -->
+<div id="appScreen" class="hidden">
+  <div class="app">
+    <div class="app-header">
+      <div class="brand-mini">
+        <span class="l1">Sistem Asesmen Literasi</span>
+        <span class="l2" id="headerBrandRole"></span>
+      </div>
+      <div class="header-user">
+        <div>
+          <div class="header-name" id="headerName" style="text-align:right;"></div>
+          <div class="header-role" id="headerRole" style="text-align:right;"></div>
+        </div>
+        <div class="avatar-circle" id="headerAvatar"></div>
+        <button class="btn btn-ghost" onclick="logout()">Keluar</button>
+      </div>
+    </div>
+ 
+    <!-- SISWA LOBBY -->
+    <div id="lobbySiswa" class="hidden">
+      <div class="lobby-nav">
+        <div class="lobby-tab active" data-tab="ujian" onclick="setSiswaTab('ujian')">Ujian</div>
+        <div class="lobby-tab" data-tab="kemampuan" onclick="setSiswaTab('kemampuan')">Kemampuan Saya</div>
+        <div class="lobby-tab" data-tab="riwayat" onclick="setSiswaTab('riwayat')">Riwayat Nilai</div>
+        <div class="lobby-tab" data-tab="profil" onclick="setSiswaTab('profil')">Profil</div>
+      </div>
+      <div id="siswaTabContent"></div>
+    </div>
+ 
+    <!-- GURU LOBBY -->
+    <div id="lobbyGuru" class="hidden">
+      <div class="lobby-nav">
+        <div class="lobby-tab active" data-tab="buatsoal" onclick="setGuruTab('buatsoal')">Buat Soal</div>
+        <div class="lobby-tab" data-tab="siswa" onclick="setGuruTab('siswa')">Database Siswa</div>
+        <div class="lobby-tab" data-tab="riwayat" onclick="setGuruTab('riwayat')">Riwayat Ujian</div>
+        <div class="lobby-tab" data-tab="profil" onclick="setGuruTab('profil')">Profil</div>
+      </div>
+      <div id="guruTabContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="processing-overlay" id="procOverlay">
+  <div class="processing-box">
+    <div class="spinner"></div>
+    <p>Mengelompokkan skor per tag kompetensi…</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
